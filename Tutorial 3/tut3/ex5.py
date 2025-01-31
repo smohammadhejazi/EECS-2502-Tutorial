@@ -37,12 +37,6 @@ class Tree:
         self._root = root
         self._subtrees = subtrees
 
-    def get_root(self):
-        return self._root
-    
-    def get_subtrees(self):
-        return self._subtrees
-
     def is_empty(self):
         """Return True if this tree is empty.
 
@@ -62,16 +56,7 @@ class Tree:
         @type other: Tree
         @rtype: bool
         """
-        if self.get_root() != other.get_root():
-            return False
-        
-        for i in range(len(self.get_subtrees())):
-            if self.get_subtrees()[i] != other.get_subtrees()[i]:
-                return False
-        
-        return True
-
-
+        pass
 
 ##############################################################################
 # Task 2: Trees and nested lists
@@ -83,19 +68,7 @@ class Tree:
         @type self: Tree
         @rtype: list
         """
-        if self.is_empty():
-            return []
-        
-        if len(self.get_subtrees()) == 0:
-            return [self.get_root()]
-        
-        nested = []
-        nested.append(self.get_root())
-        for i in range(len(self.get_subtrees())):
-            nested.append(self.get_subtrees()[i].to_nested_list())
-        return nested
-
-
+        pass
 
 
 # TODO: Implement this function!
@@ -111,16 +84,8 @@ def to_tree(obj):
     @type obj: list
     @rtype: Tree
     """
-    if obj is None:
-        return Tree(None, [])
-    
-    if len(obj) == 1:
-        return Tree(obj[0], [])
-    
-    subtrees = []
-    for i in range(1, len(obj)):
-        subtrees.append(to_tree(obj[i]))
-    return(Tree(obj[0], subtrees))
+    pass
+
 
 
 if __name__ == '__main__':
