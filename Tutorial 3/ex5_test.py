@@ -70,15 +70,14 @@ class TreeEqTest(unittest.TestCase):
     def test_empty(self):
         tree1 = Tree(1, [])
         tree_emp = Tree(None, [])
-        self.assertFalse(None)
         self.assertFalse(tree_emp == tree1)
         self.assertFalse(tree1 == tree_emp)
 		
-    def test_empty1(self):
+	def test_empty1(self):
         tree_emp = Tree(None, [])
-        tree_emp2 = Tree(None, [])
+	    tree_emp2 = Tree(None, [])
         self.assertTrue(tree_emp == tree_emp2)
-        self.assertTrue(tree_emp2 == tree_emp)
+		self.assertTrue(tree_emp2 == tree_emp)
 
 
 class ToNestedListTest(unittest.TestCase):

@@ -37,6 +37,12 @@ class Tree:
         self._root = root
         self._subtrees = subtrees
 
+    def get_root(self):
+        return self._root
+    
+    def get_subtrees(self):
+        return self._subtrees
+
     def is_empty(self):
         """Return True if this tree is empty.
 
@@ -56,7 +62,31 @@ class Tree:
         @type other: Tree
         @rtype: bool
         """
-        pass
+
+        # correct way to access private attributes in the class with
+        # the use of helper functions that you define
+        # if self.get_root() != other.get_root():
+        #     return False
+        # for i in range(len(self.get_subtrees())):
+        #     if self.get_subtrees()[i] != other.get_subtrees()[i]:
+        #       return False
+
+        # this is one way to do it, there could be many ways
+        # 1st: base case - check root
+        if self._root != other._root:
+            return False
+
+        # 2nd: check subtress recursively
+        # [root, [left_tree_1, middle_tree_1, right_tree_1]]
+        # [root, [left_tree_2, middle_tree_2, right_tree_2]]
+
+        for i in range(0, len(self.get_subtrees())):
+            if not self._subtrees[i].__eq__(other._subtrees[i]):
+                return False
+        
+        return True
+
+
 
 ##############################################################################
 # Task 2: Trees and nested lists
@@ -68,7 +98,23 @@ class Tree:
         @type self: Tree
         @rtype: list
         """
-        pass
+        if self.is_empty():
+            return []
+        
+        if len(self.get_subtrees()) == 0:
+            return [self.get_root()]
+        
+        nested = []
+        # correct way with the use of helper functions to access private attributes
+        # nested.append(self.get_root())
+        # for i in range(len(self.get_subtrees())):
+        #     nested.append(self.get_subtrees()[i].to_nested_list())
+        nested.append(self.get_root())
+        for i in self.get_subtrees():
+            nested.append(i.to_nested_list())
+        return nested
+
+
 
 
 # TODO: Implement this function!
@@ -84,8 +130,16 @@ def to_tree(obj):
     @type obj: list
     @rtype: Tree
     """
-    pass
-
+    if obj is None:
+        return Tree(None, [])
+    
+    if len(obj) == 1:
+        return Tree(obj[0], [])
+    
+    subtrees = []
+    for i in range(1, len(obj)):
+        subtrees.append(to_tree(obj[i]))
+    return(Tree(obj[0], subtrees))
 
 
 if __name__ == '__main__':
