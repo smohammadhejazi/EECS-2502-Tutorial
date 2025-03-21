@@ -1,0 +1,30 @@
+Right Rotation:
+                y                              x
+               / \                           /  \
+              x   T3   – - – - – - – >     T1   y
+             / \                               / \
+            T1  T2                            T2  T3
+Left Rotation:
+                x                              y
+               / \                           /  \
+              T1  y   – - – - – - – >       x   T3
+                 / \                       / \
+                T2  T3                   T1  T2
+Left-Right Rotation:
+                z                              z                              x
+               / \                            / \                           /   \
+              y   T4   – - – - – - – >       x   T4   – - – - – - – >      y      z
+             / \                            / \                           / \    / \
+            T1  x                          y  T3                        T1 T2  T3  T4
+               / \                        / \
+              T2  T3                    T1  T2
+Right-Left Rotation:
+                z                              z                           x
+               / \                            / \                        /   \
+              T1  y   – - – - – - – >       T1  x   – - – - – - – >     z      y
+                 / \                           / \                     / \    / \
+                x   T4                       T2  y                   T1 T2  T3  T4
+               / \                               / \
+              T2  T3                            T3 T4
+
+
